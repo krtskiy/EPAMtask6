@@ -13,29 +13,20 @@ public class Part6 {
     private static final String IOE_MSG = "IO exception!";
 
     public static void main(String[] args) {
-        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         String filePath = "";
-        try {
-            String userInput = bf.readLine();
-
-            Pattern pattern = Pattern.compile("\\w+\\.\\w+");
-            Matcher matcher = pattern.matcher(userInput);
-            while (matcher.find()) {
-                filePath = matcher.group();
+        for (int i = 0; i < args.length; i++) {
+            if (args[i].equals("-i") || args[i].equals("--input")) {
+                filePath = args[i + 1];
             }
-
-            if (userInput.contains("frequency")) {
-                Part61.frequencyTask(filePath);
-            } else if (userInput.contains("length")) {
-                Part62.lengthTask(filePath);
-            } else if (userInput.contains("duplicates")) {
-                Part63.duplicatesTask(filePath);
-            } else {
-                System.out.println("Wrong input!");
+            if (args[i].equals("-t") || args[i].equals("--task")) {
+                if (args[i + 1].equals("frequency")) {
+                    Part61.frequencyTask(filePath);
+                } else if (args[i + 1].equals("length")) {
+                    Part62.lengthTask(filePath);
+                } else if (args[i + 1].equals("duplicates")) {
+                    Part63.duplicatesTask(filePath);
+                }
             }
-
-        } catch (IOException e) {
-            logger.severe(IOE_MSG);
         }
 
     }
