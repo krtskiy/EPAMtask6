@@ -9,12 +9,12 @@ public class Range implements Iterable<Integer> {
     private int second;
     private boolean reverseOrder;
 
-    Range(int first, int second) {
+    public Range(int first, int second) {
         this.first = first;
         this.second = second;
     }
 
-    Range(int first, int second, boolean reversedOrder) {
+    public Range(int first, int second, boolean reversedOrder) {
         this.first = first;
         this.second = second;
         this.reverseOrder = reversedOrder;
