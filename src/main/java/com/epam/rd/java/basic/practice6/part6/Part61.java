@@ -15,27 +15,16 @@ public class Part61 {
 
         Map<String, Integer> inputMap = new LinkedHashMap<>();
 
-        List<String> arrayList = new ArrayList<>();
-
         for (int i = 0; i < inputList.size(); i++) {
-            StringBuilder str = new StringBuilder();
-            if (Collections.frequency(inputList, inputList.get(i)) > 2) {
-                arrayList.add(str.append(inputList.get(i)).append(" ==> ").append(Collections.frequency(inputList, inputList.get(i))).toString());
-            }
             inputMap.put(inputList.get(i), Collections.frequency(inputList, inputList.get(i)));
-
         }
 
-        Collections.sort(arrayList);
-        Set<String> testSet = new LinkedHashSet<>();
-        for (int i = 0; i < arrayList.size(); i++) {
-            testSet.add(arrayList.get(i));
-        }
-
-        List<String> blablabla = new LinkedList<>(testSet);
-        for (int i = 0; i < 3; i++) {
-            System.out.println(blablabla.get(blablabla.size() - 1 - i));
-        }
+        inputMap.entrySet()
+                .stream()
+                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+                .limit(3)
+                .sorted(Map.Entry.comparingByKey(Comparator.reverseOrder()))
+                .forEach(e -> System.out.println(e.getKey() + " ==> " + e.getValue()));
 
     }
 }
