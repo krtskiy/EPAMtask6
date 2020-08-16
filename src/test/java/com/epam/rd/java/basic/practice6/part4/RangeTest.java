@@ -1,7 +1,11 @@
 package com.epam.rd.java.basic.practice6.part4;
 
+import com.epam.rd.java.basic.practice6.part3.Part3;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 public class RangeTest {
 
@@ -21,6 +25,16 @@ public class RangeTest {
         StringBuilder actual = new StringBuilder();
         for (Integer el : range) actual.append(el);
         Assert.assertEquals(expected, actual.toString());
+    }
+
+    @Test
+    public void part4MainShouldPrintRightOutput() {
+        String expected = "3 4 5 6 7 8 9 10 " + System.lineSeparator() +
+                "10 9 8 7 6 5 4 3 " + System.lineSeparator();
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        Part4.main(null);
+        Assert.assertEquals(expected, outContent.toString());
     }
 
 }

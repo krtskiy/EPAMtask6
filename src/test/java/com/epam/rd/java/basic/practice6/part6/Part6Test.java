@@ -3,13 +3,14 @@ package com.epam.rd.java.basic.practice6.part6;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 public class Part6Test {
 
-    public static final String FILE_PATH = "part6.txt";
-    public static final String LINE_SEP = System.lineSeparator();
+    private static final String FILE_PATH = "part6.txt";
+    private static final String LINE_SEP = System.lineSeparator();
 
 
     @Test
@@ -17,7 +18,7 @@ public class Part6Test {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         String expected = "";
-        Part6.main(new String[] {"-i", FILE_PATH, "--tsk", "frqnc"});
+        Part6.main(new String[]{"-i", FILE_PATH, "--tsk", "frqnc"});
         Assert.assertEquals(expected, outContent.toString());
     }
 
