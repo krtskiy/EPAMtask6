@@ -7,7 +7,7 @@ public class Part3 {
 
         parkingFor4.arrive(2);
         parkingFor4.arrive(0);
-        parkingFor4.arrive();
+        parkingFor4.arrive(0);
         parkingFor4.depart(2);
 
         parkingFor4.print();

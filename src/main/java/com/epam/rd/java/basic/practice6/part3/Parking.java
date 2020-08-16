@@ -33,14 +33,14 @@ public class Parking {
         }
     }
 
-    public boolean arrive() {
-        if (numberOfCars < capacity) {
-            this.arrive(0);
-            return true;
-        } else {
-            return false;
-        }
-    }
+//    public boolean arrive() {
+//        if (numberOfCars < capacity) {
+//            this.arrive(0);
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
 
     public boolean depart(int k) {
         if (k > capacity) {
@@ -57,14 +57,14 @@ public class Parking {
         }
     }
 
-    public boolean depart() {
-        if (numberOfCars > 0) {
-            this.depart(0);
-            return true;
-        } else {
-            return false;
-        }
-    }
+//    public boolean depart() {
+//        if (numberOfCars > 0) {
+//            this.depart(0);
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
 
     public void print() {
         System.out.println(stateOfParking);

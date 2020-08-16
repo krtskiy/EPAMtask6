@@ -22,10 +22,10 @@ public class ParkingTest {
         Assert.assertTrue(testParking.arrive(1));
     }
 
-    @Test
-    public void shouldArriveSuccessfullyWithoutParam() {
-        Assert.assertTrue(testParking.arrive());
-    }
+//    @Test
+//    public void shouldArriveSuccessfullyWithoutParam() {
+//        Assert.assertTrue(testParking.arrive());
+//    }
 
     @Test
     public void shouldDepartSuccessfullyFromOccupiedPlace() {
@@ -33,11 +33,11 @@ public class ParkingTest {
         Assert.assertTrue(testParking.depart(3));
     }
 
-    @Test
-    public void shouldDepartSuccessfullyWithoutParam() {
-        testParking.arrive();
-        Assert.assertTrue(testParking.depart());
-    }
+//    @Test
+//    public void shouldDepartSuccessfullyWithoutParam() {
+//        testParking.arrive();
+//        Assert.assertTrue(testParking.depart());
+//    }
 
     @Test
     public void shouldPrintRightStateOfParking() {
