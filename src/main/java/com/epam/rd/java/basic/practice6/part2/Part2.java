@@ -7,42 +7,44 @@ import java.util.List;
 
 public class Part2 {
 
-    List<Integer> list;
-
     public static void main(String[] args) {
         Part2 part2Obj = new Part2();
-        List<Integer> list = part2Obj.createLinkedList(7);
-        List<Integer> array = part2Obj.createArrayList(7);
+        List<Integer> list = new LinkedList<>();
+        List<Integer> array = new ArrayList<>();
+        part2Obj.fillContainer(list, 10_000);
+        part2Obj.fillContainer(array, 10_000);
 
-        System.out.println("ArrayList#Index: " + removeByIndex(array, 3) + " ms");
-        System.out.println("LinkedList#Index: " + removeByIndex(list, 3) + " ms");
-        System.out.println("ArrayList#Iterator: " + removeByIterator(array, 3) + " ms");
-        System.out.println("LinkedList#Iterator: " + removeByIterator(list, 3) + " ms");
+        System.out.println("ArrayList#Index: " + removeByIndex(array, 4) + " ms");
+        System.out.println("LinkedList#Index: " + removeByIndex(list, 4) + " ms");
 
+        part2Obj.fillContainer(list, 10_000);
+        part2Obj.fillContainer(array, 10_000);
+
+        System.out.println("ArrayList#Iterator: " + removeByIterator(array, 4) + " ms");
+        System.out.println("LinkedList#Iterator: " + removeByIterator(list, 4) + " ms");
     }
 
-    public List<Integer> createLinkedList(int size) {
-        list = new LinkedList<>();
+    public List<Integer> fillContainer(List<Integer> list, int size) {
         for (int i = 0; i < size; i++) {
             list.add(i);
         }
         return list;
-    }
-
-    public List<Integer> createArrayList(int size) {
-        list = new ArrayList<>();
-        for (int i = 0; i < size; i++) {
-            list.add(i);
-        }
-        return list;
-
     }
 
     public static long removeByIndex(final List<Integer> list, final int k) {
         long before = System.currentTimeMillis();
 
+        int index = k - 1;
         while (list.size() != 1) {
-
+            if (index < list.size()) {
+                list.remove(index);
+                index += k - 1;
+            }
+            while (index >= list.size()) {
+                index = index - list.size();
+            }
+            list.remove(index);
+            index += k - 1;
         }
 
         long after = System.currentTimeMillis();
@@ -68,4 +70,5 @@ public class Part2 {
         long after = System.currentTimeMillis();
         return after - before;
     }
+
 }
