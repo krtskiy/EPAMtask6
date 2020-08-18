@@ -19,7 +19,7 @@ public class Parking {
         } else if (numberOfCars == capacity) {
             return false;
         } else {
-            for ( ; k <= capacity; k++) {
+            for (; k <= capacity; k++) {
                 if (k >= capacity) {
                     k = 0;
                 }
@@ -32,15 +32,6 @@ public class Parking {
             return false;
         }
     }
-
-//    public boolean arrive() {
-//        if (numberOfCars < capacity) {
-//            this.arrive(0);
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
 
     public boolean depart(int k) {
         if (k > capacity) {
@@ -56,15 +47,6 @@ public class Parking {
             return false;
         }
     }
-
-//    public boolean depart() {
-//        if (numberOfCars > 0) {
-//            this.depart(0);
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
 
     public void print() {
         System.out.println(stateOfParking);

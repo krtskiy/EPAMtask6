@@ -22,22 +22,11 @@ public class ParkingTest {
         Assert.assertTrue(testParking.arrive(1));
     }
 
-//    @Test
-//    public void shouldArriveSuccessfullyWithoutParam() {
-//        Assert.assertTrue(testParking.arrive());
-//    }
-
     @Test
     public void shouldDepartSuccessfullyFromOccupiedPlace() {
         testParking.arrive(3);
         Assert.assertTrue(testParking.depart(3));
     }
-
-//    @Test
-//    public void shouldDepartSuccessfullyWithoutParam() {
-//        testParking.arrive();
-//        Assert.assertTrue(testParking.depart());
-//    }
 
     @Test
     public void shouldPrintRightStateOfParking() {
@@ -59,8 +48,33 @@ public class ParkingTest {
         System.setOut(new PrintStream(outContent));
         Part3.main(null);
         Assert.assertEquals(expected, outContent.toString());
-
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void arriveShouldThrowIAE() {
+        testParking.arrive(5);
+    }
+
+    @Test
+    public void shouldReturnFalseIfParkingAlreadyFull() {
+        testParking.arrive(0);
+        testParking.arrive(1);
+        testParking.arrive(2);
+        testParking.arrive(3);
+        Assert.assertFalse(testParking.arrive(3));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void departShouldThrowIAE() {
+        testParking.depart(5);
+    }
+
+    @Test
+    public void shouldReturnFalseIfParkingEmpty() {
+        Assert.assertFalse(testParking.depart(0));
+    }
+
+
 
 
 }

@@ -1,11 +1,13 @@
 package com.epam.rd.java.basic.practice6.part6;
 
+import com.epam.rd.java.basic.practice6.Demo;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.lang.reflect.Constructor;
 
 public class Part6Test {
 
@@ -23,7 +25,7 @@ public class Part6Test {
     }
 
     @Test
-    public void frequencyTaskSHouldPrintCorrectOutput() {
+    public void frequencyTaskShouldPrintCorrectOutput() {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         String expected = "whale ==> 3" + LINE_SEP +
@@ -31,11 +33,10 @@ public class Part6Test {
                 "bison ==> 3" + LINE_SEP;
         Part61.frequencyTask(FILE_PATH);
         Assert.assertEquals(expected, outContent.toString());
-
     }
 
     @Test
-    public void lengthTaskSHouldPrintCorrectOutput() {
+    public void lengthTaskShouldPrintCorrectOutput() {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         String expected = "chimpanzee ==> 10" + LINE_SEP +
@@ -43,12 +44,10 @@ public class Part6Test {
                 "tortoise ==> 8" + LINE_SEP;
         Part62.lengthTask(FILE_PATH);
         Assert.assertEquals(expected, outContent.toString());
-
-
     }
 
     @Test
-    public void duplicateTaskSHouldPrintCorrectOutput() {
+    public void duplicateTaskShouldPrintCorrectOutput() {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         String expected = "RAUGAJ" + LINE_SEP +
@@ -56,7 +55,31 @@ public class Part6Test {
                 "ELAHW" + LINE_SEP;
         Part63.duplicatesTask(FILE_PATH);
         Assert.assertEquals(expected, outContent.toString());
-
     }
+
+    @Test
+    public void demoMainShouldPrintRightOutput() {
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        Demo.main(null);
+
+        String expected = "~~~~~~~~~~~~~~~ PART6 ~~~~~~~~~~~~~~~\n" + System.lineSeparator() +
+                "~~~~~ Frequency task ~~~~~" + System.lineSeparator() +
+                "whale ==> 3" + System.lineSeparator() +
+                "cheetah ==> 4" + System.lineSeparator() +
+                "bison ==> 3" + System.lineSeparator() +
+                "~~~~~ Length task ~~~~~" + System.lineSeparator() +
+                "chimpanzee ==> 10" + System.lineSeparator() +
+                "mongoose ==> 8" + System.lineSeparator() +
+                "tortoise ==> 8" + System.lineSeparator() +
+                "~~~~~ Duplicates task ~~~~~" + System.lineSeparator() +
+                "RAUGAJ" + System.lineSeparator() +
+                "NOSIB" + System.lineSeparator() +
+                "ELAHW" + System.lineSeparator();
+
+        Assert.assertEquals(expected, outContent.toString());
+    }
+
 
 }
