@@ -17,7 +17,7 @@ public class WordContainer {
                 sb.append(userInput.trim()).append(" ");
             }
             if ("stop".equals(userInput)) {
-                scan.close();
+//                scan.close();
 
                 List<String> list = Arrays.asList(WordContainer.sb.toString().split(" "));
                 Set<Word> linkedSet = new LinkedHashSet<>();
