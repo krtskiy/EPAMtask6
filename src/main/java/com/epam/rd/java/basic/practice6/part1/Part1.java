@@ -1,28 +1,25 @@
 package com.epam.rd.java.basic.practice6.part1;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 
 public class Part1 {
 
+    public static final InputStream SYS_IN = System.in;
+
     public static void main(String[] args) {
-        StringBuilder sb = new StringBuilder();
-        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            while (true) {
-                if ("stop".equals(bf.readLine())) {
-                	break;
-				}
-                sb.append(bf.readLine());
-            }
+        // set the mock input
 
+        System.setIn(new ByteArrayInputStream(
+                "asd 43 asdf asd 43^434 asdf^kasdf asdf stop asdf^stop"
+                        .replace("^", System.lineSeparator()).getBytes(StandardCharsets.UTF_8)));
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        WordContainer.main(args);
 
-        System.out.println(sb);
+        // restore the mock input
+
+        System.setIn(SYS_IN);
 
     }
 
