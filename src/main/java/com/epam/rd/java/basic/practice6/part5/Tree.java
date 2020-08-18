@@ -84,14 +84,14 @@ public class Tree<E extends Comparable<E>> {
     }
 
     public void print() {
-        goThroughTree(root, " ");
+        goThroughTree(root, "");
     }
 
     public void goThroughTree(Node<E> node, String string) {
         if (node != null) {
-            goThroughTree(node.left, string + " ");
+            goThroughTree(node.left, string + "  ");
             System.out.println(string + node.value);
-            goThroughTree(node.right, string + " ");
+            goThroughTree(node.right, string + "  ");
         }
     }
 
