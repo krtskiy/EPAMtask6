@@ -84,7 +84,7 @@ public class Tree<E extends Comparable<E>> {
     }
 
     public void print() {
-        goThroughTree(root, "");
+        goThroughTree(root, " ");
     }
 
     public void goThroughTree(Node<E> node, String string) {
