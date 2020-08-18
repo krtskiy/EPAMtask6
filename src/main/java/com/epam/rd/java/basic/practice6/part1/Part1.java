@@ -1,6 +1,7 @@
 package com.epam.rd.java.basic.practice6.part1;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
@@ -8,7 +9,7 @@ public class Part1 {
 
     public static final InputStream SYS_IN = System.in;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 //        // set the mock input
 //
 //        System.setIn(new ByteArrayInputStream(
@@ -22,10 +23,6 @@ public class Part1 {
 //        System.setIn(SYS_IN);
 
         WordContainer.main(null);
-
-
-
-
     }
 
 }
