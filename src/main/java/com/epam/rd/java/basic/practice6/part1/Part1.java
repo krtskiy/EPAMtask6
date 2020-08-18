@@ -10,19 +10,19 @@ public class Part1 {
     public static final InputStream SYS_IN = System.in;
 
     public static void main(String[] args) throws IOException {
-//        // set the mock input
-//
-//        System.setIn(new ByteArrayInputStream(
-//                "asd 43 asdf asd 43^434 asdf^kasdf asdf stop asdf^stop"
-//                        .replace("^", System.lineSeparator()).getBytes(StandardCharsets.UTF_8)));
-//
-//        WordContainer.main(args);
-//
-//        // restore the mock input
-//
-//        System.setIn(SYS_IN);
+        // set the mock input
 
-        WordContainer.main(null);
+        System.setIn(new ByteArrayInputStream(
+                "asd 43 asdf asd 43^434 asdf^kasdf asdf stop asdf^stop"
+                        .replace("^", System.lineSeparator()).getBytes(StandardCharsets.UTF_8)));
+
+        WordContainer.main(args);
+
+        // restore the mock input
+
+        System.setIn(SYS_IN);
+
+//        WordContainer.main(null);
     }
 
 }

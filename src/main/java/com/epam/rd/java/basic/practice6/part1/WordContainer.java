@@ -8,10 +8,10 @@ import java.util.*;
 
 public class WordContainer {
 
-    private static StringBuilder sb;
+//    private static StringBuilder sb;
 
     public static void main(String[] args) throws IOException {
-        sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 //        Scanner scan = new Scanner(System.in);
         while (true) {
@@ -24,7 +24,7 @@ public class WordContainer {
             if ("stop".equals(userInput)) {
                 br.close();
 
-                List<String> list = Arrays.asList(WordContainer.sb.toString().split(" "));
+                List<String> list = Arrays.asList(sb.toString().split(" "));
                 Set<Word> linkedSet = new LinkedHashSet<>();
 
                 for (int i = 0; i < list.size(); i++) {
@@ -35,6 +35,7 @@ public class WordContainer {
 						.sorted(Comparator.comparing(Word::getFrequency).reversed())
 						.forEachOrdered(System.out::println);
 
+                linkedSet.clear();
                 return;
             }
         }
