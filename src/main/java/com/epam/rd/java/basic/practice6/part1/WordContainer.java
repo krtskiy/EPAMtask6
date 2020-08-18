@@ -1,10 +1,10 @@
 package com.epam.rd.java.basic.practice6.part1;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class WordContainer {
 
-	static StringBuilder sb;
+    private static StringBuilder sb;
 
     public static void main(String[] args) {
         sb = new StringBuilder();
@@ -12,13 +12,24 @@ public class WordContainer {
         while (true) {
             String userInput = scan.nextLine();
             if (userInput.contains("stop")) {
-				sb.append(userInput, 0, userInput.indexOf("stop"));
+                sb.append(userInput, 0, userInput.indexOf("stop"));
             } else {
                 sb.append(userInput.trim()).append(" ");
             }
             if ("stop".equals(userInput)) {
                 scan.close();
-                Word.sortWords();
+
+                List<String> list = Arrays.asList(WordContainer.sb.toString().split(" "));
+                Set<Word> linkedSet = new LinkedHashSet<>();
+
+                for (int i = 0; i < list.size(); i++) {
+                    linkedSet.add(new Word(list.get(i), Collections.frequency(list, list.get(i))));
+                }
+
+				for (Word w : linkedSet) {
+					System.out.println(w);
+				}
+
                 return;
             }
         }
