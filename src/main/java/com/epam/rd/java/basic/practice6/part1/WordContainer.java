@@ -1,24 +1,17 @@
 package com.epam.rd.java.basic.practice6.part1;
 
-import java.io.IOException;
 import java.util.*;
 
 public class WordContainer {
 
-//    private static StringBuilder sb;
-
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         StringBuilder sb = new StringBuilder();
-//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Scanner scan = new Scanner(System.in);
         while (true) {
             String userInput = scan.nextLine();
-            if (userInput.contains("stop")) {
+            if (userInput.contains("stop ") || userInput.contains(" stop")) {
                 sb.append(userInput, 0, userInput.indexOf("stop"));
-            } else {
-                sb.append(userInput.trim()).append(" ");
-            }
-            if ("stop".equals(userInput)) {
+            } else if ("stop".equals(userInput)) {
                 scan.close();
 
                 List<String> list = Arrays.asList(sb.toString().split(" "));
@@ -29,14 +22,15 @@ public class WordContainer {
                 }
 
                 linkedSet.stream()
-						.sorted(Comparator.comparing(Word::getFrequency).reversed())
-						.forEachOrdered(System.out::println);
+                        .sorted(Comparator.comparing(Word::getFrequency).reversed())
+                        .forEachOrdered(System.out::println);
 
                 return;
+            } else {
+                sb.append(userInput.trim()).append(" ");
             }
         }
-
-
+        
     }
 
 }
