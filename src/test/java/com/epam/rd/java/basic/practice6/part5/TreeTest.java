@@ -38,9 +38,9 @@ public class TreeTest {
         tree.add(new Integer[]{4, 2});
         tree.print();
 
-        String expected = " 2" + System.lineSeparator() +
+        String expected = "  2" + System.lineSeparator() +
                 "3" + System.lineSeparator() +
-                " 4" + System.lineSeparator();
+                "  4" + System.lineSeparator();
 
         Assert.assertEquals(expected, outContent.toString());
     }
@@ -52,15 +52,15 @@ public class TreeTest {
 
         Part5.main(null);
 
-        String expected = " 1" + System.lineSeparator() +
-                "  2" + System.lineSeparator() +
+        String expected = "  1" + System.lineSeparator() +
+                "    2" + System.lineSeparator() +
                 "3" + System.lineSeparator() +
-                "   5" + System.lineSeparator() +
-                "  6" + System.lineSeparator() +
-                " 7" + System.lineSeparator() +
-                "  8" + System.lineSeparator() +
-                "    9" + System.lineSeparator() +
-                "   10" + System.lineSeparator();
+                "      5" + System.lineSeparator() +
+                "    6" + System.lineSeparator() +
+                "  7" + System.lineSeparator() +
+                "    8" + System.lineSeparator() +
+                "        9" + System.lineSeparator() +
+                "      10" + System.lineSeparator();
 
         Assert.assertEquals(expected, outContent.toString());
     }
