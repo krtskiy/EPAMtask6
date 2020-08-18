@@ -1,7 +1,6 @@
 package com.epam.rd.java.basic.practice6.part1;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Word implements Comparable<Word> {
 
@@ -17,37 +16,28 @@ public class Word implements Comparable<Word> {
         return content;
     }
 
+    public int getFrequency() {
+        return frequency;
+    }
+
     public static void sortWords() {
         List<String> list = Arrays.asList(WordContainer.sb.toString().split(" "));
-//        Map<String, Integer> map = new LinkedHashMap<>();
+        System.out.println(list);
 
-        List<Word> wordList = new LinkedList<>();
+        Set<Word> linkedSet = new LinkedHashSet<>();
 
         for (int i = 0; i < list.size(); i++) {
-            wordList.add(new Word(list.get(i), Collections.frequency(list, list.get(i))));
+            linkedSet.add(new Word(list.get(i), Collections.frequency(list, list.get(i))));
         }
 
-        wordList.sort((o1, o2) -> {
-            if (o1.frequency < o2.frequency) {
-                return 1;
-            } else if (o1.frequency > o2.frequency) {
-                return -1;
-            } else {
-                return 0;
-            }
-        });
+        System.out.println(linkedSet);
 
-        wordList.stream()
-                .collect(Collectors.toSet())
-                .stream()
-                .sorted()
-                .forEach(x -> System.out.println(x.content + " : " + x.frequency));
+        linkedSet.stream()
+                .sorted(Comparator.comparing(Word::getFrequency))
+                .forEachOrdered(x -> System.out.println(x.content + " : " + x.frequency));
 
 
-//        map.entrySet()
-//                .stream()
-//                .sorted(Map.Entry.comparingByKey(Comparator.reverseOrder()))
-//                .forEach(System.out::println);
+
     }
 
     @Override
@@ -77,5 +67,13 @@ public class Word implements Comparable<Word> {
         } else {
             return 0;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "content='" + content + '\'' +
+                ", frequency=" + frequency +
+                '}';
     }
 }
