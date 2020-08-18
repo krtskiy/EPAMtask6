@@ -12,6 +12,10 @@ public class Word {
         this.frequency = frequency;
     }
 
+    public int getFrequency() {
+        return frequency;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

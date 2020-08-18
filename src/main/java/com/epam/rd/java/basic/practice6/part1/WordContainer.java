@@ -26,9 +26,10 @@ public class WordContainer {
                     linkedSet.add(new Word(list.get(i), Collections.frequency(list, list.get(i))));
                 }
 
-				for (Word w : linkedSet) {
-					System.out.println(w);
-				}
+                linkedSet.stream()
+						.sorted(Comparator.comparing(Word::getFrequency).reversed())
+						.forEachOrdered(System.out::println);
+
 
                 return;
             }
