@@ -8,7 +8,7 @@ public class WordContainer {
         StringBuilder sb = new StringBuilder();
         Scanner scan = new Scanner(System.in);
         while (true) {
-            String userInput = scan.nextLine();
+            String userInput = scan.next();
             if (userInput.contains("stop ") || userInput.contains(" stop")) {
                 sb.append(userInput, 0, userInput.indexOf("stop"));
             } else if ("stop".equals(userInput)) {
