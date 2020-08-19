@@ -2,7 +2,7 @@ package com.epam.rd.java.basic.practice6.part1;
 
 import java.util.*;
 
-public class Word {
+public class Word implements Comparable<Word> {
 
     private String content;
     private int frequency;
@@ -16,6 +16,10 @@ public class Word {
         return frequency;
     }
 
+    public String getContent() {
+        return content;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -23,19 +27,28 @@ public class Word {
 
         Word word = (Word) o;
 
-        if (frequency != word.frequency) return false;
-        return Objects.equals(content, word.content);
+        return content != null ? content.equals(word.content) : word.content == null;
     }
 
     @Override
     public int hashCode() {
-        int result = content != null ? content.hashCode() : 0;
-        result = 31 * result + frequency;
-        return result;
+        return content != null ? content.hashCode() : 0;
     }
 
     @Override
     public String toString() {
         return content + " : " + frequency;
+    }
+
+
+    @Override
+    public int compareTo(Word o) {
+        if (this.frequency > o.frequency) {
+            return 1;
+        } else if (this.frequency < o.frequency) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
 }

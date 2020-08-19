@@ -7,19 +7,57 @@ import java.util.*;
 
 public class WordContainer {
 
-    static List<String> words;
-
     public static void main(String[] args) {
-        words = new ArrayList<>();
+        List<String> words = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            reader.lines()
-                    .flatMap(x -> Arrays.stream(x.split("\\s")))
-                    .sorted()
-                    .distinct()
-                    .forEach(System.out::println);
+            while (true) {
+                String userInput = reader.readLine();
+                if ("stop".equals(userInput)) {
+                    break;
+                }
+                String[] test = userInput.split(" ");
+                words.addAll(Arrays.asList(test));
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        for (int i = 0; i < words.size(); i++) {
+            if (words.get(i).equals("stop")) {
+                words = words.subList(0, i);
+            }
+        }
+
+        Set<Word> wordsSet = new LinkedHashSet<>();
+        for (int i = 0; i < words.size(); i++) {
+            wordsSet.add(new Word(words.get(i), Collections.frequency(words, words.get(i))));
+        }
+
+        for (Word w : wordsSet) {
+            System.out.println(w);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+//        words = new ArrayList<>();
+//        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+//            reader.lines()
+//                    .flatMap(x -> Arrays.stream(x.split("\\s")))
+//                    .sorted()
+//                    .distinct()
+//                    .forEach(System.out::println);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
 
 //        StringBuilder sb = new StringBuilder();
