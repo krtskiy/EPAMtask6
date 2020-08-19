@@ -16,10 +16,6 @@ public class Word implements Comparable<Word> {
         return frequency;
     }
 
-    public String getContent() {
-        return content;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -27,7 +23,7 @@ public class Word implements Comparable<Word> {
 
         Word word = (Word) o;
 
-        return content != null ? content.equals(word.content) : word.content == null;
+        return Objects.equals(content, word.content);
     }
 
     @Override
@@ -40,15 +36,15 @@ public class Word implements Comparable<Word> {
         return content + " : " + frequency;
     }
 
-
     @Override
     public int compareTo(Word o) {
         if (this.frequency > o.frequency) {
-            return 1;
-        } else if (this.frequency < o.frequency) {
             return -1;
+        } else if (this.frequency < o.frequency) {
+            return 1;
         } else {
             return 0;
         }
     }
+
 }
