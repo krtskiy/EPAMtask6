@@ -2,7 +2,7 @@ package com.epam.rd.java.basic.practice6.part1;
 
 import java.util.*;
 
-public class Word implements Comparable<Word> {
+public class Word {
 
     private String content;
     private int frequency;
@@ -34,17 +34,6 @@ public class Word implements Comparable<Word> {
     @Override
     public String toString() {
         return content + " : " + frequency;
-    }
-
-    @Override
-    public int compareTo(Word o) {
-        if (this.frequency > o.frequency) {
-            return -1;
-        } else if (this.frequency < o.frequency) {
-            return 1;
-        } else {
-            return 0;
-        }
     }
 
 }

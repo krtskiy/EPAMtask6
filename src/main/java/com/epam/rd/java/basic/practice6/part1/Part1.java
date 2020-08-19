@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets;
 
 public class Part1 {
 
-    public static final InputStream SYS_IN = System.in;
+    private static final InputStream SYS_IN = System.in;
 
     public static void main(String[] args) {
         // set the mock input
