@@ -6,17 +6,17 @@ import java.util.NoSuchElementException;
 public class Range implements Iterable<Integer> {
 
     private int first;
-    private int second;
+    private int last;
     private boolean reverseOrder;
 
-    public Range(int first, int second) {
+    public Range(int first, int last) {
         this.first = first;
-        this.second = second;
+        this.last = last;
     }
 
-    public Range(int first, int second, boolean reversedOrder) {
+    public Range(int first, int last, boolean reversedOrder) {
         this.first = first;
-        this.second = second;
+        this.last = last;
         this.reverseOrder = reversedOrder;
     }
 
@@ -29,13 +29,13 @@ public class Range implements Iterable<Integer> {
 
         @Override
         public boolean hasNext() {
-            return reverseOrder ? second > first - 1 : first < second + 1;
+            return reverseOrder ? last > first - 1 : first < last + 1;
         }
 
         @Override
         public Integer next() {
             if (!reverseOrder) {
-                if (first > second) throw new NoSuchElementException();
+                if (first > last) throw new NoSuchElementException();
                 if (!hasNext()) {
                     return null;
                 } else {
@@ -43,11 +43,11 @@ public class Range implements Iterable<Integer> {
                 }
             }
 
-            if (second < first) throw new NoSuchElementException();
+            if (first > last) throw new NoSuchElementException();
             if (!hasNext()) {
                 return null;
             } else {
-                return second--;
+                return last--;
             }
         }
 

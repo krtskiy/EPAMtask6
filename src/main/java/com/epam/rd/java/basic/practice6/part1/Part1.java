@@ -12,7 +12,7 @@ public class Part1 {
         // set the mock input
 
         System.setIn(new ByteArrayInputStream(
-                "asd 43 asdf asd 43^434 asdf ^kasdf asdf stop asdf^stop"
+                "kek 420 keklul kek 322^420 kek ^kappa keklul 69 stop kek^stop"
                         .replace("^", System.lineSeparator()).getBytes(StandardCharsets.UTF_8)));
 
         WordContainer.main(args);

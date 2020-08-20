@@ -24,7 +24,7 @@ public class Part61 {
                 .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
                 .limit(3)
                 .sorted(Map.Entry.comparingByKey(Comparator.reverseOrder()))
-                .forEach(e -> System.out.println(e.getKey() + " ==> " + e.getValue()));
+                .forEach(x -> System.out.println(x.getKey() + " ==> " + x.getValue()));
 
     }
 }

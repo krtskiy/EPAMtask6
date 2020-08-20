@@ -30,11 +30,12 @@ public class WordContainerTest {
 
     @Test
     public void shouldPrintCorrectResult() {
-        String expected = "asdf : 3" + LINE_SEP +
-                "asd : 2" + LINE_SEP +
-                "43 : 2" + LINE_SEP +
-                "434 : 1" + LINE_SEP +
-                "kasdf : 1" + LINE_SEP;
+        String expected = "kek : 3" + LINE_SEP +
+                "420 : 2" + LINE_SEP +
+                "keklul : 2" + LINE_SEP +
+                "322 : 1" + LINE_SEP +
+                "kappa : 1" + LINE_SEP +
+                "69 : 1" + LINE_SEP;
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         Part1.main(null);

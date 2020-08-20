@@ -15,9 +15,9 @@ public class Part62 {
 
         Arrays.sort(input, (o1, o2) -> Integer.compare(o2.length(), o1.length()));
 
-        for (int i = 0; i < 3; i++) {
-            System.out.println(input[i] + " ==> " + input[i].length());
-        }
+        Arrays.stream(input)
+                .limit(3)
+                .forEach(x -> System.out.println(x + " ==> " + x.length()));
 
     }
 
