@@ -11,7 +11,6 @@ public class Part3 {
         parkingFor4.depart(2);
 
         parkingFor4.print();
-
         
     }
 
